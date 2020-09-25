@@ -17,7 +17,7 @@ class LocalDataSource private constructor(private val animeDao: AnimeDao){
 
     fun getAllAnime(): LiveData<List<AnimeEntity>> = animeDao.getAllAnime()
 
-    fun getfAVORITEaNIME(): LiveData<List<AnimeEntity>> = animeDao.getFavoriteAnime()
+    fun getFavoriteAnime(): LiveData<List<AnimeEntity>> = animeDao.getFavoriteAnime()
 
     fun insertAnime(animeList: List<AnimeEntity>) = animeDao.insertAnime(animeList)
 
