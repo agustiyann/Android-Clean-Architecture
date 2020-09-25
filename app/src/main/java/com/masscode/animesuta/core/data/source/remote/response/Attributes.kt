@@ -1,7 +1,6 @@
 package com.masscode.animesuta.core.data.source.remote.response
 
 data class Attributes(
-    val id: Int? = 0,
     val canonicalTitle : String,
     val startDate : String,
     val averageRating : Double,
