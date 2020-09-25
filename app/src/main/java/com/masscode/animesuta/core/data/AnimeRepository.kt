@@ -40,7 +40,7 @@ class AnimeRepository private constructor(
             }
 
             override fun createCall(): LiveData<ApiResponse<List<AnimeResponse>>> {
-
+                return remoteDataSource.getAllAnime()
             }
 
             override fun saveCallResult(data: List<AnimeResponse>) {
