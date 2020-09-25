@@ -36,7 +36,7 @@ class AnimeRepository private constructor(
             }
 
             override fun shouldFetch(data: List<AnimeEntity>?): Boolean {
-                return data == null || data.isEmpty()
+                return true// data == null || data.isEmpty()
             }
 
             override fun createCall(): LiveData<ApiResponse<List<AnimeResponse>>> {
