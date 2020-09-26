@@ -6,19 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.masscode.animesuta.R
 import com.masscode.animesuta.core.domain.model.Anime
 import com.masscode.animesuta.core.ui.AnimeAdapter
-import com.masscode.animesuta.core.ui.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_home.rv_anime
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavoriteFragment : Fragment() {
 
-    private lateinit var favoriteViewModel: FavoriteViewModel
+    private val favoriteViewModel: FavoriteViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,9 +32,6 @@ class FavoriteFragment : Fragment() {
 
         if (activity != null) {
             val animeAdapter = AnimeAdapter { item -> showDetail(item) }
-
-            val factory = ViewModelFactory.getInstance(requireActivity())
-            favoriteViewModel = ViewModelProvider(this, factory)[FavoriteViewModel::class.java]
 
             favoriteViewModel.favoriteAnime.observe(viewLifecycleOwner, { anime ->
                 animeAdapter.submitList(anime)

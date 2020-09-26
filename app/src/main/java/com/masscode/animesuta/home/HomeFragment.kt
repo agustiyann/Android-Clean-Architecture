@@ -6,20 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.masscode.animesuta.R
 import com.masscode.animesuta.core.data.Resource
 import com.masscode.animesuta.core.domain.model.Anime
 import com.masscode.animesuta.core.ui.AnimeAdapter
-import com.masscode.animesuta.core.ui.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.view_error.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private val homeViewModel: HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,9 +33,6 @@ class HomeFragment : Fragment() {
 
         if (activity != null) {
             val animeAdapter = AnimeAdapter { item -> showDetail(item) }
-
-            val factory = ViewModelFactory.getInstance(requireActivity())
-            homeViewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
 
             homeViewModel.anime.observe(viewLifecycleOwner, { anime ->
                 if (anime != null) {

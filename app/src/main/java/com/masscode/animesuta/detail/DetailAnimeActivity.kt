@@ -7,30 +7,27 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.masscode.animesuta.R
 import com.masscode.animesuta.core.domain.model.Anime
-import com.masscode.animesuta.core.ui.ViewModelFactory
 import com.masscode.animesuta.databinding.ActivityDetailAnimeBinding
-
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailAnimeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailAnimeBinding
-    private lateinit var detailViewModel: DetailAnimeViewModel
     private lateinit var mAnime: Anime
     private var statusFavorite: Boolean = false
+
+    private val detailViewModel: DetailAnimeViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_anime)
 
-        val factory = ViewModelFactory.getInstance(this)
-        detailViewModel = ViewModelProvider(this, factory)[DetailAnimeViewModel::class.java]
-
         mAnime = DetailAnimeActivityArgs.fromBundle(intent.extras!!).anime
         statusFavorite = mAnime.isFavorite
         setStatusFavorite(statusFavorite)
+
         with(binding) {
             activity = this@DetailAnimeActivity
             lifecycleOwner = this@DetailAnimeActivity

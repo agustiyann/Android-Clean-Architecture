@@ -4,16 +4,16 @@ import com.masscode.animesuta.core.data.source.local.entity.AnimeEntity
 import com.masscode.animesuta.core.data.source.local.room.AnimeDao
 import kotlinx.coroutines.flow.Flow
 
-class LocalDataSource private constructor(private val animeDao: AnimeDao) {
+class LocalDataSource(private val animeDao: AnimeDao) {
 
-    companion object {
-        private var instance: LocalDataSource? = null
-
-        fun getInstance(animeDao: AnimeDao): LocalDataSource =
-            instance ?: synchronized(this) {
-                instance ?: LocalDataSource(animeDao)
-            }
-    }
+//    companion object {
+//        private var instance: LocalDataSource? = null
+//
+//        fun getInstance(animeDao: AnimeDao): LocalDataSource =
+//            instance ?: synchronized(this) {
+//                instance ?: LocalDataSource(animeDao)
+//            }
+//    }
 
     fun getAllAnime(): Flow<List<AnimeEntity>> = animeDao.getAllAnime()
 
