@@ -58,7 +58,7 @@
                 android:layout_gravity="center"
                 android:onClick="@{() -> activity.playTrailer(anime.youtubeVideoId)}"
                 android:text="@string/watch_trailer"
-                app:icon="@drawable/ic_favorite_black" />
+                app:icon="@drawable/ic_play_arrow" />
 
         </LinearLayout>
 

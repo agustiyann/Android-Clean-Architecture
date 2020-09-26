@@ -4,8 +4,11 @@ import android.annotation.SuppressLint
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.masscode.animesuta.R
 
 @BindingAdapter("app:showImage")
 fun showImage(imgView: ImageView, url: String?) {

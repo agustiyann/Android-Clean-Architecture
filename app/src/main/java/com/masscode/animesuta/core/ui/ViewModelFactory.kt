@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.masscode.animesuta.core.data.AnimeRepository
 import com.masscode.animesuta.core.di.Injection
+import com.masscode.animesuta.detail.DetailAnimeViewModel
 import com.masscode.animesuta.favorite.FavoriteViewModel
 import com.masscode.animesuta.home.HomeViewModel
 
@@ -29,6 +30,9 @@ class ViewModelFactory private constructor(private val animeRepository: AnimeRep
             }
             modelClass.isAssignableFrom(FavoriteViewModel::class.java) -> {
                 FavoriteViewModel(animeRepository) as T
+            }
+            modelClass.isAssignableFrom(DetailAnimeViewModel::class.java) -> {
+                DetailAnimeViewModel(animeRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

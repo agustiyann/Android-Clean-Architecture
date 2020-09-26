@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.masscode.animesuta.R
 import com.masscode.animesuta.core.data.source.local.entity.AnimeEntity
@@ -51,5 +52,10 @@ class FavoriteFragment : Fragment() {
 
     private fun showDetail(anime: AnimeEntity) {
         Log.d("debug", "OnClick : ${anime.canonicalTitle}")
+        findNavController().navigate(
+            FavoriteFragmentDirections.actionFavoriteFragmentToDetailAnimeActivity(
+                anime
+            )
+        )
     }
 }
