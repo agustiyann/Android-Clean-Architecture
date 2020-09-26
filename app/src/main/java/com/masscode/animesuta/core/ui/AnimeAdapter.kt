@@ -2,14 +2,22 @@ package com.masscode.animesuta.core.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.masscode.animesuta.core.domain.model.Anime
 import com.masscode.animesuta.databinding.ItemListAnimeBinding
 
 class AnimeAdapter(private val showDetail: (Anime) -> Unit) :
-    ListAdapter<Anime, AnimeAdapter.AnimeViewHolder>(DiffCallback) {
+    RecyclerView.Adapter<AnimeAdapter.AnimeViewHolder>() {
+
+    private var listData = ArrayList<Anime>()
+
+    fun setData(newListData: List<Anime>?) {
+        if (newListData == null) return
+        listData.clear()
+        listData.addAll(newListData)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -24,9 +32,11 @@ class AnimeAdapter(private val showDetail: (Anime) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: AnimeAdapter.AnimeViewHolder, position: Int) {
-        val item = getItem(position)
+        val item = listData[position]
         holder.bind(item)
     }
+
+    override fun getItemCount(): Int = listData.size
 
     inner class AnimeViewHolder(private var binding: ItemListAnimeBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -38,16 +48,6 @@ class AnimeAdapter(private val showDetail: (Anime) -> Unit) :
             }
 
             binding.executePendingBindings()
-        }
-    }
-
-    companion object DiffCallback : DiffUtil.ItemCallback<Anime>() {
-        override fun areItemsTheSame(oldItem: Anime, newItem: Anime): Boolean {
-            return oldItem === newItem
-        }
-
-        override fun areContentsTheSame(oldItem: Anime, newItem: Anime): Boolean {
-            return oldItem.id == newItem.id
         }
     }
 }

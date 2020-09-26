@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
                         is Resource.Loading -> progress_bar.visibility = View.VISIBLE
                         is Resource.Success -> {
                             progress_bar.visibility = View.GONE
-                            animeAdapter.submitList(anime.data)
+                            animeAdapter.setData(anime.data)
                         }
                         is Resource.Error -> {
                             progress_bar.visibility = View.GONE

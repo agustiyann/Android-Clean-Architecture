@@ -34,7 +34,7 @@ class FavoriteFragment : Fragment() {
             val animeAdapter = AnimeAdapter { item -> showDetail(item) }
 
             favoriteViewModel.favoriteAnime.observe(viewLifecycleOwner, { anime ->
-                animeAdapter.submitList(anime)
+                animeAdapter.setData(anime)
                 view_empty.visibility = if (anime.isNotEmpty()) View.GONE else View.VISIBLE
             })
 
