@@ -49,7 +49,7 @@ class AnimeRepository private constructor(
             }
         }.asLiveData()
 
-    fun getFavoriteTourism(): LiveData<List<AnimeEntity>> {
+    fun getFavoriteAnime(): LiveData<List<AnimeEntity>> {
         return localDataSource.getFavoriteAnime()
     }
 

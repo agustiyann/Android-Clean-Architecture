@@ -32,6 +32,11 @@ class AnimeAdapter(private val showDetail: (AnimeEntity) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(anime: AnimeEntity?) {
             binding.anime = anime
+
+            with(binding.root) {
+                setOnClickListener { showDetail(anime!!) }
+            }
+
             binding.executePendingBindings()
         }
     }

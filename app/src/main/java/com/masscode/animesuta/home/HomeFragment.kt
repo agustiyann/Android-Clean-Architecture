@@ -66,5 +66,7 @@ class HomeFragment : Fragment() {
 
     private fun showDetail(anime: AnimeEntity) {
         Log.d("debug", "OnClick : ${anime.canonicalTitle}")
+        this.findNavController()
+            .navigate(HomeFragmentDirections.actionHomeFragmentToDetailAnimeActivity(anime))
     }
 }

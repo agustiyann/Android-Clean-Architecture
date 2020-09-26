@@ -9,10 +9,27 @@
         android:id="@+id/homeFragment"
         android:name="com.masscode.animesuta.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detailAnimeActivity"
+            app:destination="@id/detailAnimeActivity" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.masscode.animesuta.favorite.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailAnimeActivity"
+            app:destination="@id/detailAnimeActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/detailAnimeActivity"
+        android:name="com.masscode.animesuta.detail.DetailAnimeActivity"
+        android:label="fragment_detail_anime"
+        tools:layout="@layout/activity_detail_anime">
+        <argument
+            android:name="anime"
+            app:argType="com.masscode.animesuta.core.data.source.local.entity.AnimeEntity" />
+    </activity>
 </navigation>
