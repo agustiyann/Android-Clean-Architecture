@@ -3,8 +3,8 @@ package com.masscode.animesuta.core.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.masscode.animesuta.core.databinding.ItemListAnimeBinding
 import com.masscode.animesuta.core.domain.model.Anime
-import com.masscode.animesuta.databinding.ItemListAnimeBinding
 
 class AnimeAdapter(private val showDetail: (Anime) -> Unit) :
     RecyclerView.Adapter<AnimeAdapter.AnimeViewHolder>() {
