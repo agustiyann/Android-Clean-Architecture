@@ -1,12 +1,12 @@
 package com.masscode.animesuta.detail
 
 import androidx.lifecycle.ViewModel
-import com.masscode.animesuta.core.data.AnimeRepository
 import com.masscode.animesuta.core.domain.model.Anime
+import com.masscode.animesuta.core.domain.usecase.AnimeUseCase
 
-class DetailAnimeViewModel(private val animeRepository: AnimeRepository) : ViewModel() {
+class DetailAnimeViewModel(private val animeUseCase: AnimeUseCase) : ViewModel() {
 
     fun setFavoriteAnime(anime: Anime, newStatus: Boolean) =
-        animeRepository.setFavoriteAnime(anime, newStatus)
+        animeUseCase.setFavoriteAnime(anime, newStatus)
 
 }

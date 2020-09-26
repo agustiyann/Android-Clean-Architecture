@@ -1,10 +1,10 @@
 package com.masscode.animesuta.home
 
 import androidx.lifecycle.ViewModel
-import com.masscode.animesuta.core.data.AnimeRepository
+import com.masscode.animesuta.core.domain.usecase.AnimeUseCase
 
-class HomeViewModel(animeRepository: AnimeRepository) : ViewModel() {
+class HomeViewModel(animeUseCase: AnimeUseCase) : ViewModel() {
 
-    val anime = animeRepository.getAllAnime()
+    val anime = animeUseCase.getAllAnime()
 
 }

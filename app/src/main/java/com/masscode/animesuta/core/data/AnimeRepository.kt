@@ -8,6 +8,7 @@ import com.masscode.animesuta.core.data.source.remote.RemoteDataSource
 import com.masscode.animesuta.core.data.source.remote.network.ApiResponse
 import com.masscode.animesuta.core.data.source.remote.response.AnimeResponse
 import com.masscode.animesuta.core.domain.model.Anime
+import com.masscode.animesuta.core.domain.repository.IAnimeRepository
 import com.masscode.animesuta.core.utils.AppExecutors
 import com.masscode.animesuta.core.utils.DataMapper
 
@@ -15,7 +16,7 @@ class AnimeRepository private constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
-) {
+) : IAnimeRepository {
 
     companion object {
         @Volatile
@@ -31,7 +32,7 @@ class AnimeRepository private constructor(
             }
     }
 
-    fun getAllAnime(): LiveData<Resource<List<Anime>>> =
+    override fun getAllAnime(): LiveData<Resource<List<Anime>>> =
         object : NetworkBoundResource<List<Anime>, List<AnimeResponse>>(appExecutors) {
             override fun loadFromDB(): LiveData<List<Anime>> {
                 return Transformations.map(localDataSource.getAllAnime()) {
@@ -53,13 +54,13 @@ class AnimeRepository private constructor(
             }
         }.asLiveData()
 
-    fun getFavoriteAnime(): LiveData<List<Anime>> {
+    override fun getFavoriteAnime(): LiveData<List<Anime>> {
         return Transformations.map(localDataSource.getFavoriteAnime()) {
             DataMapper.mapEntitiesToDomain(it)
         }
     }
 
-    fun setFavoriteAnime(anime: Anime, state: Boolean) {
+    override fun setFavoriteAnime(anime: Anime, state: Boolean) {
         val animeEntity = DataMapper.mapDomainToEntity(anime)
         appExecutors.diskIO().execute {
             localDataSource.setFavoriteAnime(animeEntity, state)

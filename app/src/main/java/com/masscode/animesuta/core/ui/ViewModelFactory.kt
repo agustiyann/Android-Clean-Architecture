@@ -5,11 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.masscode.animesuta.core.data.AnimeRepository
 import com.masscode.animesuta.core.di.Injection
+import com.masscode.animesuta.core.domain.usecase.AnimeUseCase
 import com.masscode.animesuta.detail.DetailAnimeViewModel
 import com.masscode.animesuta.favorite.FavoriteViewModel
 import com.masscode.animesuta.home.HomeViewModel
 
-class ViewModelFactory private constructor(private val animeRepository: AnimeRepository) :
+class ViewModelFactory private constructor(private val animeUseCase: AnimeUseCase) :
     ViewModelProvider.NewInstanceFactory() {
 
     companion object {
@@ -18,7 +19,7 @@ class ViewModelFactory private constructor(private val animeRepository: AnimeRep
 
         fun getInstance(context: Context): ViewModelFactory =
             instance ?: synchronized(this) {
-                instance ?: ViewModelFactory(Injection.provideRepository(context))
+                instance ?: ViewModelFactory(Injection.provideAnimeUseCase(context))
             }
     }
 
@@ -26,13 +27,13 @@ class ViewModelFactory private constructor(private val animeRepository: AnimeRep
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel(animeRepository) as T
+                HomeViewModel(animeUseCase) as T
             }
             modelClass.isAssignableFrom(FavoriteViewModel::class.java) -> {
-                FavoriteViewModel(animeRepository) as T
+                FavoriteViewModel(animeUseCase) as T
             }
             modelClass.isAssignableFrom(DetailAnimeViewModel::class.java) -> {
-                DetailAnimeViewModel(animeRepository) as T
+                DetailAnimeViewModel(animeUseCase) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
