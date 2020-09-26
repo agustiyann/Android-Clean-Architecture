@@ -1,4 +1,4 @@
-package com.masscode.animesuta.utils
+package com.masscode.animesuta.binding
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
