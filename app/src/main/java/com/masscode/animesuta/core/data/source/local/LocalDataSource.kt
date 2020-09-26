@@ -1,10 +1,10 @@
 package com.masscode.animesuta.core.data.source.local
 
-import androidx.lifecycle.LiveData
 import com.masscode.animesuta.core.data.source.local.entity.AnimeEntity
 import com.masscode.animesuta.core.data.source.local.room.AnimeDao
+import kotlinx.coroutines.flow.Flow
 
-class LocalDataSource private constructor(private val animeDao: AnimeDao){
+class LocalDataSource private constructor(private val animeDao: AnimeDao) {
 
     companion object {
         private var instance: LocalDataSource? = null
@@ -15,11 +15,11 @@ class LocalDataSource private constructor(private val animeDao: AnimeDao){
             }
     }
 
-    fun getAllAnime(): LiveData<List<AnimeEntity>> = animeDao.getAllAnime()
+    fun getAllAnime(): Flow<List<AnimeEntity>> = animeDao.getAllAnime()
 
-    fun getFavoriteAnime(): LiveData<List<AnimeEntity>> = animeDao.getFavoriteAnime()
+    fun getFavoriteAnime(): Flow<List<AnimeEntity>> = animeDao.getFavoriteAnime()
 
-    fun insertAnime(animeList: List<AnimeEntity>) = animeDao.insertAnime(animeList)
+    suspend fun insertAnime(animeList: List<AnimeEntity>) = animeDao.insertAnime(animeList)
 
     fun setFavoriteAnime(anime: AnimeEntity, newState: Boolean) {
         anime.isFavorite = newState

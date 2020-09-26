@@ -2,17 +2,15 @@ package com.masscode.animesuta.home
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.masscode.animesuta.R
 import com.masscode.animesuta.core.data.Resource
-import com.masscode.animesuta.core.data.source.local.entity.AnimeEntity
 import com.masscode.animesuta.core.domain.model.Anime
 import com.masscode.animesuta.core.ui.AnimeAdapter
 import com.masscode.animesuta.core.ui.ViewModelFactory

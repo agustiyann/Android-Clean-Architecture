@@ -3,7 +3,6 @@ package com.masscode.animesuta.core.ui
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.masscode.animesuta.core.data.AnimeRepository
 import com.masscode.animesuta.core.di.Injection
 import com.masscode.animesuta.core.domain.usecase.AnimeUseCase
 import com.masscode.animesuta.detail.DetailAnimeViewModel
