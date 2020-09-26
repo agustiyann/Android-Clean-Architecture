@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.masscode.animesuta.core.data.source.local.entity.AnimeEntity
+import com.masscode.animesuta.core.domain.model.Anime
 import com.masscode.animesuta.databinding.ItemListAnimeBinding
 
-class AnimeAdapter(private val showDetail: (AnimeEntity) -> Unit) :
-    ListAdapter<AnimeEntity, AnimeAdapter.AnimeViewHolder>(DiffCallback) {
+class AnimeAdapter(private val showDetail: (Anime) -> Unit) :
+    ListAdapter<Anime, AnimeAdapter.AnimeViewHolder>(DiffCallback) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -30,7 +30,7 @@ class AnimeAdapter(private val showDetail: (AnimeEntity) -> Unit) :
 
     inner class AnimeViewHolder(private var binding: ItemListAnimeBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(anime: AnimeEntity?) {
+        fun bind(anime: Anime?) {
             binding.anime = anime
 
             with(binding.root) {
@@ -41,12 +41,12 @@ class AnimeAdapter(private val showDetail: (AnimeEntity) -> Unit) :
         }
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<AnimeEntity>() {
-        override fun areItemsTheSame(oldItem: AnimeEntity, newItem: AnimeEntity): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<Anime>() {
+        override fun areItemsTheSame(oldItem: Anime, newItem: Anime): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: AnimeEntity, newItem: AnimeEntity): Boolean {
+        override fun areContentsTheSame(oldItem: Anime, newItem: Anime): Boolean {
             return oldItem.id == newItem.id
         }
     }

@@ -11,7 +11,7 @@
 
         <variable
             name="anime"
-            type="com.masscode.animesuta.core.data.source.local.entity.AnimeEntity" />
+            type="com.masscode.animesuta.core.domain.model.Anime" />
 
     </data>
 

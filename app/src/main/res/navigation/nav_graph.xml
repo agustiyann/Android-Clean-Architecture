@@ -30,6 +30,6 @@
         tools:layout="@layout/activity_detail_anime">
         <argument
             android:name="anime"
-            app:argType="com.masscode.animesuta.core.data.source.local.entity.AnimeEntity" />
+            app:argType="com.masscode.animesuta.core.domain.model.Anime" />
     </activity>
 </navigation>

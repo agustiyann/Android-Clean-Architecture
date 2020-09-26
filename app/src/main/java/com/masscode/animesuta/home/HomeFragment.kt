@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.masscode.animesuta.R
 import com.masscode.animesuta.core.data.Resource
 import com.masscode.animesuta.core.data.source.local.entity.AnimeEntity
+import com.masscode.animesuta.core.domain.model.Anime
 import com.masscode.animesuta.core.ui.AnimeAdapter
 import com.masscode.animesuta.core.ui.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -64,7 +65,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun showDetail(anime: AnimeEntity) {
+    private fun showDetail(anime: Anime) {
         Log.d("debug", "OnClick : ${anime.canonicalTitle}")
         this.findNavController()
             .navigate(HomeFragmentDirections.actionHomeFragmentToDetailAnimeActivity(anime))

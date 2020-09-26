@@ -1,11 +1,13 @@
 package com.masscode.animesuta.core.data
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import com.masscode.animesuta.core.data.source.local.LocalDataSource
 import com.masscode.animesuta.core.data.source.local.entity.AnimeEntity
 import com.masscode.animesuta.core.data.source.remote.RemoteDataSource
 import com.masscode.animesuta.core.data.source.remote.network.ApiResponse
 import com.masscode.animesuta.core.data.source.remote.response.AnimeResponse
+import com.masscode.animesuta.core.domain.model.Anime
 import com.masscode.animesuta.core.utils.AppExecutors
 import com.masscode.animesuta.core.utils.DataMapper
 
@@ -29,13 +31,15 @@ class AnimeRepository private constructor(
             }
     }
 
-    fun getAllAnime(): LiveData<Resource<List<AnimeEntity>>> =
-        object : NetworkBoundResource<List<AnimeEntity>, List<AnimeResponse>>(appExecutors) {
-            override fun loadFromDB(): LiveData<List<AnimeEntity>> {
-                return localDataSource.getAllAnime()
+    fun getAllAnime(): LiveData<Resource<List<Anime>>> =
+        object : NetworkBoundResource<List<Anime>, List<AnimeResponse>>(appExecutors) {
+            override fun loadFromDB(): LiveData<List<Anime>> {
+                return Transformations.map(localDataSource.getAllAnime()) {
+                    DataMapper.mapEntitiesToDomain(it)
+                }
             }
 
-            override fun shouldFetch(data: List<AnimeEntity>?): Boolean {
+            override fun shouldFetch(data: List<Anime>?): Boolean {
                 return true// data == null || data.isEmpty()
             }
 
@@ -49,13 +53,16 @@ class AnimeRepository private constructor(
             }
         }.asLiveData()
 
-    fun getFavoriteAnime(): LiveData<List<AnimeEntity>> {
-        return localDataSource.getFavoriteAnime()
+    fun getFavoriteAnime(): LiveData<List<Anime>> {
+        return Transformations.map(localDataSource.getFavoriteAnime()) {
+            DataMapper.mapEntitiesToDomain(it)
+        }
     }
 
-    fun setFavoriteAnime(anime: AnimeEntity, state: Boolean) {
+    fun setFavoriteAnime(anime: Anime, state: Boolean) {
+        val animeEntity = DataMapper.mapDomainToEntity(anime)
         appExecutors.diskIO().execute {
-            localDataSource.setFavoriteAnime(anime, state)
+            localDataSource.setFavoriteAnime(animeEntity, state)
         }
     }
 }

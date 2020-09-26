@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.masscode.animesuta.R
-import com.masscode.animesuta.core.data.source.local.entity.AnimeEntity
+import com.masscode.animesuta.core.domain.model.Anime
 import com.masscode.animesuta.core.ui.ViewModelFactory
 import com.masscode.animesuta.databinding.ActivityDetailAnimeBinding
 
@@ -18,7 +18,7 @@ class DetailAnimeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailAnimeBinding
     private lateinit var detailViewModel: DetailAnimeViewModel
-    private lateinit var mAnime: AnimeEntity
+    private lateinit var mAnime: Anime
     private var statusFavorite: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
