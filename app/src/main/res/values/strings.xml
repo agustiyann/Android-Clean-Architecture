@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">Animesuta</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Animesutā</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_favorite">Favorite</string>
@@ -13,4 +11,5 @@
     <string name="text_subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae eaque iste nobis non quasi ratione veritatis. Accusantium assumenda, cum delectus deserunt dignissimos doloribus ea error esse et ex explicabo fuga ipsa ipsum omnis optio perferendis provident quaerat quam sequi unde? At deleniti dignissimos exercitationem iure officiis perspiciatis rerum tenetur, vitae?</string>
     <string name="watch_trailer">Watch Trailer</string>
     <string name="title_favorite">Favorite</string>
+    <string name="animesuta_jp">アニメスター</string>
 </resources>
