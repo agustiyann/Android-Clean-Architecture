@@ -50,16 +50,6 @@
                     android:layout_gravity="bottom"
                     android:background="#7F000000" />
 
-                <ImageView
-                    android:id="@+id/poster_image"
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center"
-                    android:background="@color/colorAccent"
-                    android:contentDescription="@string/image_description"
-                    android:scaleType="fitXY"
-                    app:showImage="@{anime.posterImage}" />
-
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"

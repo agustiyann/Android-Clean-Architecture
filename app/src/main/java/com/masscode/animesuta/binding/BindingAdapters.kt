@@ -23,3 +23,9 @@ fun setRating(ratingBar: RatingBar, rating: Double) {
     val float = rating.toFloat()
     ratingBar.rating = float / 20
 }
+
+@SuppressLint("SetTextI18n")
+@BindingAdapter("app:setRatingText")
+fun setRatingText(text: TextView, rating: Double) {
+    text.text = "Rating: $rating"
+}

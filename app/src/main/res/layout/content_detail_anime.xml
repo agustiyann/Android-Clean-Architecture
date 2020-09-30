@@ -21,18 +21,79 @@
         android:layout_marginTop="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:paddingBottom="16dp">
 
             <TextView
-                android:id="@+id/tv_start_date"
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/synopsis"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_detail_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@{anime.synopsis}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:text="@string/text_subtitle" />
+
+            <ImageView
+                android:id="@+id/poster_image"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorAccent"
+                android:contentDescription="@string/image_description"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detail_description"
+                app:showImage="@{anime.posterImage}" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/details"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/poster_image"
+                app:layout_constraintTop_toTopOf="@+id/poster_image" />
+
+            <TextView
+                android:id="@+id/rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:startDate="@{anime.startDate}"
-                tools:text="Start date: 21 08 1999" />
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/poster_image"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:setRatingText="@{anime.averageRating}"
+                tools:text="3.3" />
 
             <RatingBar
                 android:id="@+id/rating_detail"
@@ -40,27 +101,47 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:numStars="5"
+                app:layout_constraintStart_toEndOf="@+id/poster_image"
+                app:layout_constraintTop_toBottomOf="@+id/rating"
                 app:setRating="@{anime.averageRating}" />
 
             <TextView
-                android:id="@+id/tv_detail_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="@{anime.synopsis}"
-                tools:text="@string/text_subtitle" />
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_start_date"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/poster_image"
+                app:layout_constraintTop_toBottomOf="@+id/rating_detail"
+                app:startDate="@{anime.startDate}"
+                tools:text="Start date: 21 08 1999" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/materialButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:onClick="@{() -> activity.playTrailer(anime.youtubeVideoId)}"
                 android:text="@string/watch_trailer"
-                app:icon="@drawable/ic_play_arrow" />
+                app:icon="@drawable/ic_play_arrow"
+                app:iconGravity="textStart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/poster_image" />
 
-        </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
