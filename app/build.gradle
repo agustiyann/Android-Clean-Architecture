@@ -11,6 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.masscode.animesuta"
+        multiDexEnabled true
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
@@ -49,4 +50,7 @@ dependencies {
     api "androidx.navigation:navigation-fragment-ktx:$nav_version"
     api "androidx.navigation:navigation-ui-ktx:$nav_version"
     api "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    // debugImplementation because LeakCanary should only run in debug builds.
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 }

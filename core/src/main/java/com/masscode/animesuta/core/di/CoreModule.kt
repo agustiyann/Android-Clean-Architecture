@@ -8,6 +8,8 @@ import com.masscode.animesuta.core.data.source.remote.RemoteDataSource
 import com.masscode.animesuta.core.data.source.remote.network.ApiService
 import com.masscode.animesuta.core.domain.repository.IAnimeRepository
 import com.masscode.animesuta.core.utils.AppExecutors
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -19,10 +21,15 @@ import java.util.concurrent.TimeUnit
 val databaseModule = module {
     factory { get<AnimeDatabase>().animeDao() }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("masscode".toCharArray())
+        val factory = SupportFactory(passphrase)
+
         Room.databaseBuilder(
             androidContext(),
             AnimeDatabase::class.java, "Anime.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
