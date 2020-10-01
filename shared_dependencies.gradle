@@ -18,5 +18,9 @@ dependencies {
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-android-viewmodel:$koin_version"
 
+    // timber
     implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // Lottie
+    implementation "com.airbnb.android:lottie:$lottie_version"
 }
