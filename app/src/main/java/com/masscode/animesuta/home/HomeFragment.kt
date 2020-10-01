@@ -1,7 +1,6 @@
 package com.masscode.animesuta.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +14,7 @@ import com.masscode.animesuta.core.ui.AnimeAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.view_error.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class HomeFragment : Fragment() {
 
@@ -60,7 +60,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun showDetail(anime: Anime) {
-        Log.d("debug", "OnClick : ${anime.canonicalTitle}")
+        Timber.d("OnClick : ${anime.canonicalTitle}")
         this.findNavController()
             .navigate(HomeFragmentDirections.actionHomeFragmentToDetailAnimeActivity(anime))
     }

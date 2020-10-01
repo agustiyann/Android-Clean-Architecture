@@ -1,7 +1,6 @@
 package com.masscode.animesuta.favorite
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import com.masscode.animesuta.core.ui.AnimeAdapter
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
+import timber.log.Timber
 
 class FavoriteFragment : Fragment() {
 
@@ -49,7 +49,7 @@ class FavoriteFragment : Fragment() {
     }
 
     private fun showDetail(anime: Anime) {
-        Log.d("debug", "OnClick : ${anime.canonicalTitle}")
+        Timber.d("OnClick : ${anime.canonicalTitle}")
         findNavController().navigate(
             FavoriteFragmentDirections.actionFavoriteFragmentToDetailAnimeActivity(
                 anime
