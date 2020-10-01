@@ -13,7 +13,7 @@ interface AnimeDao {
     @Query("SELECT * FROM anime where isFavorite = 1")
     fun getFavoriteAnime(): Flow<List<AnimeEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAnime(anime: List<AnimeEntity>)
 
     @Update
