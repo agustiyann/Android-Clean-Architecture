@@ -36,7 +36,7 @@ Modularization is a technique of breaking an Android project into sections calle
  - Architecture
 	 -   MVVM Architecture (View - DataBinding - ViewModel - Model)
 	 -   Repository pattern
- -   [Glide](https://github.com/bumptech/glide),  [GlidePalette](https://github.com/florent37/GlidePalette)  - loading images.
+ -   [Glide](https://github.com/bumptech/glide) - loading images.
  -   [Retrofit2 & OkHttp3](https://github.com/square/retrofit)  - construct the REST APIs and paging network data.
  -   [Moshi](https://github.com/square/moshi/)  - A modern JSON library for Kotlin and Java.
  -   [Timber](https://github.com/JakeWharton/timber)  - logging.
