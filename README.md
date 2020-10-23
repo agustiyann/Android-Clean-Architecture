@@ -1,5 +1,6 @@
 # Clean Architecture
 [![agustiyann](https://circleci.com/gh/agustiyann/Android-Clean-Architecture.svg?style=svg)](https://circleci.com/gh/agustiyann/Android-Clean-Architecture)
+![GitHub](https://img.shields.io/github/license/agustiyann/Android-Clean-Architecture)
 
 ## What is Clean Architecture?
 Clean Architecture is a software engineering development architecture created by Uncle Bob (**Robert C. Martin**). The essence of this architecture is separation of concern. So that we can read the code in the project more easily.
@@ -48,3 +49,20 @@ Modularization is a technique of breaking an Android project into sections calle
 	 - Certificate Pinning - secure connection from mobile to server.
  - [Lottie](https://lottiefiles.com/) - displays animation in JSON format.
  - [Shimmer](https://facebook.github.io/shimmer-android/) - create a shimmer effect on the application.
+ 
+ 
+ ```
+    Copyright 2020 Agus Tiyansyah Syam
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ ```
