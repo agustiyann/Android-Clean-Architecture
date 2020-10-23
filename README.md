@@ -6,7 +6,7 @@ Clean Architecture is a software engineering development architecture created by
 
 In addition, the main idea of ​​using Clean Architecture is to produce a system that is **Independent of Framework**, **Testable**, **Independent of UI**, **Independent of Database**, and **Independent of External**.
 This is an overview to represent Clean Architecture suggested by Robert C. Martin:
-![Original Clean Architecture scheme](https://lh3.googleusercontent.com/SPnlvCbWoMT-fse1haAElE4PKSuR7xX5VWckgXiFCoCil6xeJ-DT8xRcpi6MkzjlQuiuycR41j_RS0p6x-oxUUMgUBYV2qe9CZAlsakYgg_16PtsvLYN9UF58OMWDzESYJta-kP5BhHJLEW2jjhzom0_te5cCuolG5rIWksNke8g4QzorX7tlfh4BgCZk551hUKzoF9MvOoSpZzvtYrUaM1bRG8cRvHQRdSOEemoTmNQZaSDUfmGrimQB_1SHnw_-alowZlaKXnCaZMM5PRhhB0J0wbqovqVRKCYi6lRDMvuozMpPCzBWXqyS-u8RGRftK9awuq9M0rf7Muf9hDxJybvwY4DBfES61kYZ2KPerDZc4ldoJjwr4AHz2B0tM7d9dqmyiv-10v_ZesRp-1JKdvYOAPuV4ISRdt_FOsKYuLjkcN5XJsRoTxYxHGrOthH5V-wV1-JWpIbLX-eOcetZrkUiuC9Bt1N_j53ouoslHuk3kNgmBE4UjpX-Qpf8O-h_rwqcx-Ew9DY6xvhhP_aACe6gxpD5TR8Pp3L8-_hc_JAwHbSiD-n56NXjqdd-8YdgWOVx0sHsXxTrnunWipv84cIwpsJUE9K0UItLhtl7RZIcMwtkfUDlQ6pvx1vxj3KS8CYoW73g7-rX1-WmXl_QMP9xSOYZLGQRoc8Z0GzbVu89TgJ-MHM8vjgLxaK=w1280-h720-no?authuser=0)
+<img src="images/clean arch layer.jpeg">
 
 ## Use this pattern in an Android project
 In a typical android project it is divided into 3 layers like this:
