@@ -1,5 +1,5 @@
 # Clean Architecture
-[![agustiyann](https://circleci.com/gh/agustiyann/Android-Clean-Architecture.svg?style=svg)](https://circleci.com/gh/agustiyann/Animesuta)
+[![agustiyann](https://circleci.com/gh/agustiyann/Android-Clean-Architecture.svg?style=svg)](https://circleci.com/gh/agustiyann/Android-Clean-Architecture)
 
 ## What is Clean Architecture?
 Clean Architecture is a software engineering development architecture created by Uncle Bob (**Robert C. Martin**). The essence of this architecture is separation of concern. So that we can read the code in the project more easily.
