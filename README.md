@@ -19,7 +19,9 @@ In a typical android project it is divided into 3 layers like this:
 ## Modularization
 Modularization is a technique of breaking an Android project into sections called modules. With modularization we will get a lot of advantages over implementing the monolith (only one part) in our project.
 <img src="images/app module.png">
+
 <img src="images/core module.png">
+
 <img src="images/favorite module.png">
 
 ## Tech stack & Open-source libraries
