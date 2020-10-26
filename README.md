@@ -40,7 +40,7 @@ Modularization is a technique of breaking an Android project into sections calle
 	 -   Repository pattern
  -   [Glide](https://github.com/bumptech/glide) - loading images.
  -   [Retrofit2 & OkHttp3](https://github.com/square/retrofit)  - construct the REST APIs and paging network data.
- -   [Moshi](https://github.com/square/moshi/)  - A modern JSON library for Kotlin and Java.
+ -   [Gson](https://github.com/google/gson)  - JSON representation.
  -   [Timber](https://github.com/JakeWharton/timber)  - logging.
  -   [Material-Components](https://github.com/material-components/material-components-android)  - Material design components.
  - [Leak Canary](https://square.github.io/leakcanary/) - memory leak detection library for Android.
@@ -51,7 +51,7 @@ Modularization is a technique of breaking an Android project into sections calle
  - [Lottie](https://lottiefiles.com/) - displays animation in JSON format.
  - [Shimmer](https://facebook.github.io/shimmer-android/) - create a shimmer effect on the application.
  
- 
+ ## License
  ```
     Copyright 2020 Agus Tiyansyah Syam
 
