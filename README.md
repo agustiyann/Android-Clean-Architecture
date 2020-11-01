@@ -31,10 +31,9 @@ Modularization is a technique of breaking an Android project into sections calle
  -   [Kotlin](https://kotlinlang.org/)  based,  [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)  +  [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/)  for asynchronous.
  - [Koin](https://insert-koin.io) for dependency injection.
  - Jetpack Libraries
-	-   LiveData - notify domain layer data to views.
-	-   Lifecycle - dispose of observing data when lifecycle state changes.
-	-   ViewModel - UI related data holder, lifecycle aware.
-	-   Room Persistence - construct a database using the abstract layer.
+	-   [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - notify domain layer data to views.
+	-   [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - UI related data holder, lifecycle aware.
+	-   [Room Persistence](https://developer.android.com/topic/libraries/architecture/room) - construct a database using the abstract layer.
  - Architecture
 	 -   MVVM Architecture (View - DataBinding - ViewModel - Model)
 	 -   Repository pattern
